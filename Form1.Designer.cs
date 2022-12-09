@@ -41,8 +41,7 @@
             this.CountdownLabel = new MaterialSkin.Controls.MaterialLabel();
             this.cancelButton = new MaterialSkin.Controls.MaterialButton();
             this.ProgressBar = new MaterialSkin.Controls.MaterialProgressBar();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.tableLayoutPanel1.SuspendLayout();
+            this.materialSwitch1 = new MaterialSkin.Controls.MaterialSwitch();
             this.SuspendLayout();
             // 
             // hourComboBox
@@ -121,7 +120,7 @@
             this.timerButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.timerButton.HighEmphasis = true;
             this.timerButton.Icon = null;
-            this.timerButton.Location = new System.Drawing.Point(4, 6);
+            this.timerButton.Location = new System.Drawing.Point(347, 207);
             this.timerButton.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.timerButton.MouseState = MaterialSkin.MouseState.HOVER;
             this.timerButton.Name = "timerButton";
@@ -224,18 +223,19 @@
             // 
             // cancelButton
             // 
+            this.cancelButton.AutoSize = false;
             this.cancelButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.cancelButton.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
             this.cancelButton.Depth = 0;
             this.cancelButton.Enabled = false;
             this.cancelButton.HighEmphasis = true;
             this.cancelButton.Icon = null;
-            this.cancelButton.Location = new System.Drawing.Point(4, 72);
+            this.cancelButton.Location = new System.Drawing.Point(347, 266);
             this.cancelButton.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.cancelButton.MouseState = MaterialSkin.MouseState.HOVER;
             this.cancelButton.Name = "cancelButton";
             this.cancelButton.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.cancelButton.Size = new System.Drawing.Size(77, 36);
+            this.cancelButton.Size = new System.Drawing.Size(95, 36);
             this.cancelButton.TabIndex = 21;
             this.cancelButton.Text = "Cancel";
             this.cancelButton.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
@@ -252,26 +252,31 @@
             this.ProgressBar.Size = new System.Drawing.Size(225, 5);
             this.ProgressBar.TabIndex = 22;
             // 
-            // tableLayoutPanel1
+            // materialSwitch1
             // 
-            this.tableLayoutPanel1.ColumnCount = 1;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Controls.Add(this.timerButton, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.cancelButton, 0, 1);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(342, 195);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 2;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 59F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(119, 125);
-            this.tableLayoutPanel1.TabIndex = 23;
+            this.materialSwitch1.AutoSize = true;
+            this.materialSwitch1.Depth = 0;
+            this.materialSwitch1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.materialSwitch1.Location = new System.Drawing.Point(301, 371);
+            this.materialSwitch1.Margin = new System.Windows.Forms.Padding(0);
+            this.materialSwitch1.MouseLocation = new System.Drawing.Point(-1, -1);
+            this.materialSwitch1.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialSwitch1.Name = "materialSwitch1";
+            this.materialSwitch1.Ripple = true;
+            this.materialSwitch1.Size = new System.Drawing.Size(99, 37);
+            this.materialSwitch1.TabIndex = 24;
+            this.materialSwitch1.Text = "DARK";
+            this.materialSwitch1.UseVisualStyleBackColor = true;
+            this.materialSwitch1.CheckedChanged += new System.EventHandler(this.materialSwitch1_CheckedChanged);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(812, 446);
-            this.Controls.Add(this.tableLayoutPanel1);
+            this.Controls.Add(this.cancelButton);
+            this.Controls.Add(this.timerButton);
+            this.Controls.Add(this.materialSwitch1);
             this.Controls.Add(this.materialLabel1);
             this.Controls.Add(this.ProgressBar);
             this.Controls.Add(this.CountdownLabel);
@@ -283,11 +288,11 @@
             this.Controls.Add(this.secondComboBox);
             this.Controls.Add(this.hourComboBox);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "Form1";
+            this.Sizable = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Automatic Shut down";
-            this.tableLayoutPanel1.ResumeLayout(false);
-            this.tableLayoutPanel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -307,6 +312,6 @@
         private MaterialSkin.Controls.MaterialLabel CountdownLabel;
         private MaterialSkin.Controls.MaterialButton cancelButton;
         private MaterialSkin.Controls.MaterialProgressBar ProgressBar;
-        private TableLayoutPanel tableLayoutPanel1;
+        private MaterialSkin.Controls.MaterialSwitch materialSwitch1;
     }
 }
