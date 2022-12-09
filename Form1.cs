@@ -10,11 +10,12 @@ namespace Automatic_Shutdown
     public partial class Form1 : MaterialForm
     {
 
-        public Form1(ITimerService timerService)
+        public Form1(ITimerService timerService, IConfig config)
         {
             _timerService = timerService;
+            _config = config;
             InitializeComponent();
-            MaterialSettings();
+            Material_Settings();
             //set value for combobox
             SetValueForComboboxes();
             SetDefaultValues();
@@ -22,7 +23,7 @@ namespace Automatic_Shutdown
         }
 
         #region Settings
-        private Config settings = new Config();
+        private IConfig _config;
         private MaterialSkinManager materialSkinManager;
         private readonly ITimerService _timerService;
         TimeSpan span = new TimeSpan();
@@ -33,7 +34,7 @@ namespace Automatic_Shutdown
         double closingsecond = 0;
         public void SetValueForComboboxes()
         {
-            var lists = settings.SetValueForComboboxes();
+            var lists = _config.SetValueForComboboxes();
             hourComboBox.Items.AddRange(lists[0]);
             minuteComboBox.Items.AddRange(lists[1]);
             secondComboBox.Items.AddRange(lists[2]);
@@ -42,15 +43,15 @@ namespace Automatic_Shutdown
 
         public void SetDefaultValues()
         {
-            settings.SetDefaultValues(hourComboBox);
-            settings.SetDefaultValues(minuteComboBox);
-            settings.SetDefaultValues(secondComboBox);
-            settings.SetDefaultValues(processComboBox);
+            _config.SetDefaultValues(hourComboBox);
+            _config.SetDefaultValues(minuteComboBox);
+            _config.SetDefaultValues(secondComboBox);
+            _config.SetDefaultValues(processComboBox);
         }
 
-        public void MaterialSettings()
+        public void Material_Settings()
         {
-            materialSkinManager = settings.MaterialSetting(materialSkinManager);
+            materialSkinManager = _config.MaterialSetting(materialSkinManager);
             materialSkinManager.AddFormToManage(this);
         }
 
@@ -82,7 +83,7 @@ namespace Automatic_Shutdown
 
         private void materialSwitch1_CheckedChanged(object sender, EventArgs e)
         {
-            materialSwitch1.Text = settings.SwitchTheme(materialSkinManager);
+            materialSwitch1.Text = _config.SwitchTheme(materialSkinManager);
         }
         private void SetCountdownTimer()
         {
@@ -103,7 +104,7 @@ namespace Automatic_Shutdown
 
         private void OnCountdownEvent(object? sender, EventArgs e)
         {
-            (span, passingsecond) = settings.CountDown(span, ProgressBar, passingsecond, closingsecond, CountdownLabel);
+            (span, passingsecond) = _config.CountDown(span, ProgressBar, passingsecond, closingsecond, CountdownLabel);
         }
 
         private void OnTimerEvent(object? sender, EventArgs e)
@@ -118,7 +119,7 @@ namespace Automatic_Shutdown
             {
                 ButtonEnable();
                 process = processComboBox.Text;
-                int closingTime = settings.ConvertTime(hourComboBox.Text, minuteComboBox.Text, secondComboBox.Text); // just math
+                int closingTime = _config.ConvertTime(hourComboBox.Text, minuteComboBox.Text, secondComboBox.Text); // just math
                 closingsecond = closingTime / 1000;
                 span = TimeSpan.FromMilliseconds(closingTime);
 

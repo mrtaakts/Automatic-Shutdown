@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Automatic_Shutdown.Configs
 {
-    public class Config
+    public class Config : IConfig
     {
         public MaterialSkinManager MaterialSetting(MaterialSkinManager materialSkinManager)
         {
