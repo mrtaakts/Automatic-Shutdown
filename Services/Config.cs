@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Automatic_Shutdown.Configs
+namespace Automatic_Shutdown.Services
 {
     public class Config : IConfig
     {
@@ -33,9 +33,9 @@ namespace Automatic_Shutdown.Configs
         }
         public int ConvertTime(string hours, string minutes, string seconds)
         {
-            int hour = Int32.Parse(hours);
-            int minute = Int32.Parse(minutes);
-            int second = Int32.Parse(seconds);
+            int hour = int.Parse(hours);
+            int minute = int.Parse(minutes);
+            int second = int.Parse(seconds);
             int closingTime = hour * 3600 * 1000 + minute * 60 * 1000 + second * 1000;
             return closingTime;
         }
@@ -61,21 +61,6 @@ namespace Automatic_Shutdown.Configs
         public void SetDefaultValues(MaterialComboBox comboBox)
         {
             comboBox.Text = comboBox.Items[0].ToString();
-        }
-        public (TimeSpan, double) CountDown(TimeSpan span, ProgressBar bar, double passingsecond, double closingsecond, MaterialLabel label)
-        {
-            span = span.Subtract(TimeSpan.FromSeconds(1));
-            bar.Value = (int)Math.Ceiling(Convert.ToDecimal(passingsecond / closingsecond * 100));
-            if (span.TotalSeconds > 0)
-            {
-                label.Text = span.ToString("hh\\:mm\\:ss");
-                passingsecond = passingsecond + 1;
-            }
-            else
-            {
-                label.Text = "00:00:00";
-            }
-            return (span, passingsecond);
         }
     }
 }

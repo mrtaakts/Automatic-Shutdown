@@ -2,7 +2,6 @@ using Automatic_Shutdown.Services;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Automatic_Shutdown;
-using Automatic_Shutdown.Configs;
 
 namespace Automatic_Shutdown
 {

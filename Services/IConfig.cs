@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Automatic_Shutdown.Configs
+namespace Automatic_Shutdown.Services
 {
     public interface IConfig
     {
@@ -15,6 +15,5 @@ namespace Automatic_Shutdown.Configs
         int ConvertTime(string hours, string minutes, string seconds);
         List<string[]> SetValueForComboboxes();
         void SetDefaultValues(MaterialComboBox comboBox);
-        (TimeSpan, double) CountDown(TimeSpan span, ProgressBar bar, double passingsecond, double closingsecond, MaterialLabel label);
     }
 }

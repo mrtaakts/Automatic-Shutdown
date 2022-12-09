@@ -1,8 +1,6 @@
 using Automatic_Shutdown.Services;
-using Automatic_Shutdown.Configs;
 using MaterialSkin;
 using MaterialSkin.Controls;
-using System.Reflection;
 using Timer = System.Windows.Forms.Timer;
 
 namespace Automatic_Shutdown
@@ -104,7 +102,7 @@ namespace Automatic_Shutdown
 
         private void OnCountdownEvent(object? sender, EventArgs e)
         {
-            (span, passingsecond) = _config.CountDown(span, ProgressBar, passingsecond, closingsecond, CountdownLabel);
+            (span, passingsecond) = _timerService.CountDown(span, ProgressBar, passingsecond, closingsecond, CountdownLabel);
         }
 
         private void OnTimerEvent(object? sender, EventArgs e)

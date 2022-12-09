@@ -1,4 +1,5 @@
 ﻿using Automatic_Shutdown.Models;
+using MaterialSkin.Controls;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -109,6 +110,22 @@ namespace Automatic_Shutdown.Services
                 Application.Exit();
             }
 
+        }
+
+        public (TimeSpan, double) CountDown(TimeSpan span, ProgressBar bar, double passingsecond, double closingsecond, MaterialLabel label)
+        {
+            span = span.Subtract(TimeSpan.FromSeconds(1));
+            bar.Value = (int)Math.Ceiling(Convert.ToDecimal(passingsecond / closingsecond * 100));
+            if (span.TotalSeconds > 0)
+            {
+                label.Text = span.ToString("hh\\:mm\\:ss");
+                passingsecond = passingsecond + 1;
+            }
+            else
+            {
+                label.Text = "00:00:00";
+            }
+            return (span, passingsecond);
         }
     }
 }
