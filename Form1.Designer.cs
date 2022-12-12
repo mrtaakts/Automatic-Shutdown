@@ -147,7 +147,7 @@
             this.processComboBox.FormattingEnabled = true;
             this.processComboBox.IntegralHeight = false;
             this.processComboBox.ItemHeight = 43;
-            this.processComboBox.Location = new System.Drawing.Point(59, 336);
+            this.processComboBox.Location = new System.Drawing.Point(40, 327);
             this.processComboBox.MaxDropDownItems = 4;
             this.processComboBox.MouseState = MaterialSkin.MouseState.OUT;
             this.processComboBox.Name = "processComboBox";
@@ -201,7 +201,7 @@
             this.materialLabel4.Depth = 0;
             this.materialLabel4.Font = new System.Drawing.Font("Roboto Medium", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
             this.materialLabel4.FontType = MaterialSkin.MaterialSkinManager.fontType.H6;
-            this.materialLabel4.Location = new System.Drawing.Point(49, 296);
+            this.materialLabel4.Location = new System.Drawing.Point(30, 287);
             this.materialLabel4.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel4.Name = "materialLabel4";
             this.materialLabel4.Size = new System.Drawing.Size(171, 24);
@@ -214,7 +214,7 @@
             this.CountdownLabel.Depth = 0;
             this.CountdownLabel.Font = new System.Drawing.Font("Roboto Light", 60F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.CountdownLabel.FontType = MaterialSkin.MaterialSkinManager.fontType.H2;
-            this.CountdownLabel.Location = new System.Drawing.Point(516, 296);
+            this.CountdownLabel.Location = new System.Drawing.Point(533, 296);
             this.CountdownLabel.MouseState = MaterialSkin.MouseState.HOVER;
             this.CountdownLabel.Name = "CountdownLabel";
             this.CountdownLabel.Size = new System.Drawing.Size(225, 72);
@@ -246,7 +246,7 @@
             // ProgressBar
             // 
             this.ProgressBar.Depth = 0;
-            this.ProgressBar.Location = new System.Drawing.Point(516, 371);
+            this.ProgressBar.Location = new System.Drawing.Point(533, 371);
             this.ProgressBar.MouseState = MaterialSkin.MouseState.HOVER;
             this.ProgressBar.Name = "ProgressBar";
             this.ProgressBar.Size = new System.Drawing.Size(225, 5);
@@ -256,8 +256,8 @@
             // 
             this.materialSwitch1.AutoSize = true;
             this.materialSwitch1.Depth = 0;
-            this.materialSwitch1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.materialSwitch1.Location = new System.Drawing.Point(301, 371);
+            this.materialSwitch1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.materialSwitch1.Location = new System.Drawing.Point(334, 371);
             this.materialSwitch1.Margin = new System.Windows.Forms.Padding(0);
             this.materialSwitch1.MouseLocation = new System.Drawing.Point(-1, -1);
             this.materialSwitch1.MouseState = MaterialSkin.MouseState.HOVER;
@@ -292,7 +292,7 @@
             this.Name = "Form1";
             this.Sizable = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Automatic Shut down";
+            this.Text = "Automatic Shutdown";
             this.ResumeLayout(false);
             this.PerformLayout();
 

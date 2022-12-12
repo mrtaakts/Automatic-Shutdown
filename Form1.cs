@@ -1,6 +1,7 @@
-using Automatic_Shutdown.Services;
 using MaterialSkin;
 using MaterialSkin.Controls;
+using SharedLibrary.Models.Enums;
+using SharedLibrary.Services;
 using Timer = System.Windows.Forms.Timer;
 
 namespace Automatic_Shutdown
@@ -27,7 +28,7 @@ namespace Automatic_Shutdown
         TimeSpan span = new TimeSpan();
         Timer timer2;
         Timer timer1;
-        string process = "";
+        ProcessName process ;
         double passingsecond = 0;
         double closingsecond = 0;
         public void SetValueForComboboxes()
@@ -107,7 +108,7 @@ namespace Automatic_Shutdown
 
         private void OnTimerEvent(object? sender, EventArgs e)
         {
-            _timerService.SelectProcess(process);
+           string result = _timerService.SelectProcess(process);
         }
 
         private void timerButton_Click(object sender, EventArgs e)
@@ -116,7 +117,7 @@ namespace Automatic_Shutdown
             if (validationResult.Status)
             {
                 ButtonEnable();
-                process = processComboBox.Text;
+                process = (ProcessName)Enum.Parse(typeof(ProcessName), processComboBox.Text);
                 int closingTime = _config.ConvertTime(hourComboBox.Text, minuteComboBox.Text, secondComboBox.Text); // just math
                 closingsecond = closingTime / 1000;
                 span = TimeSpan.FromMilliseconds(closingTime);
